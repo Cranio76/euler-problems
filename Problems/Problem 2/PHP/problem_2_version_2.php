@@ -20,20 +20,27 @@
  * @author Santo Antonio Terranova (@tng46)
  * @version 2.0.0
  **************************/
-    $startTest = microtime();
-    $limit = 4e6; //set the limit to 4 milion
-    $firstAddend = 1;  
-    $secondAddend = 2;  
-    $result = 0;
+   
+       $startTest = microtime();
 
-    do {
-        if  ($secondAddend % 2 == 0)  
-            $result += $secondAddend;   //add the even numbers of the fibonacci series
+    $a = 1;
+    $b = 2;
+    $l = 4e6;
+    $c = 2;
+    $c3 = 0;
+    $sum = 0;
+    while ($a<$l) {
+        $sum += $c3;
 
-        $secondAddend += $firstAddend;      //updating the  2 Addents
-        $firstAddend = $secondAddend - $firstAddend;
+        $c2 = $a + 2*$b;
+        $c3 = 2*$a + 3*$b;
 
-    } while ($secondAddend < $limit);
+        $a = $c2;
+        $b = $c3;
 
+    } 
+    $result = 2 + $sum;
+
+ 
     $endTest = microtime();
     echo "Test time: ". ($endTest - $startTest). "\n";
